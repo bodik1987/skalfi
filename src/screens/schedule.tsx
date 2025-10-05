@@ -1,7 +1,7 @@
 export default function Schedule() {
   return (
     <>
-      <h1>Schedule</h1>
+      <h1>Календарь</h1>
     </>
   );
 }

@@ -1,7 +1,9 @@
 export default function Totals() {
   return (
     <>
-      <h1>Totals</h1>
+      <p>Дневные, месячные</p>
+      <p>Слайдер</p>
+      <p>Данные</p>
     </>
   );
 }

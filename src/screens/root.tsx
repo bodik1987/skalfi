@@ -12,10 +12,11 @@ export default function Root() {
         {loading ? (
           <div className="w-full text-gray-500 animate-pulse">Loading...</div>
         ) : (
-          <div className="grid gap-4">
-            <div className="bg-white shadow p-2 border border-gray-200">
-              <h2 className="font-semibold text-lg">{user?.name}</h2>
-            </div>
+          <div className="text-white">
+            <p>Диаграмма круговая обратного отчета</p>
+            <p>Осталось до работы/конца</p>
+            <p>Дата</p>
+            <p>Карусель дат</p>
           </div>
         )}
         <div className="wrapper fixed bottom-[60px] inset-x-0 px-4 py-4 bg-app-green text-white rounded-t-2xl w-full z-10">
@@ -88,19 +89,19 @@ export default function Root() {
           ) : (
             <div className="flex flex-col gap-4">
               <div className="flex justify-between">
-                <p className="opacity-70">Godziny rozpoczęcia</p>
+                <p className="opacity-80">Godziny rozpoczęcia</p>
                 <p className="text-lg font-semibold bg-white/20 min-w-16 text-center px-3 py-0.5 rounded-2xl">
                   6:00
                 </p>
               </div>
               <div className="flex justify-between">
-                <p className="opacity-70">Godziny rozpoczęcia</p>
+                <p className="opacity-80">Godziny zakonczenia</p>
                 <p className="text-lg font-semibold bg-black/20 min-w-16 text-center px-3 py-0.5 rounded-2xl">
                   Wolne
                 </p>
               </div>
               <div className="flex justify-between">
-                <p className="opacity-70">Godziny pracy</p>
+                <p className="opacity-80">Godziny pracy</p>
                 <p className="text-lg font-semibold">8:00</p>
               </div>
             </div>

@@ -1,7 +1,9 @@
 export default function Docs() {
   return (
-    <>
-      <h1>Docs</h1>
-    </>
+    <section>
+      <p>Фильтр дат</p>
+      <p>Список доков</p>
+      <p>Кнопка создания нового</p>
+    </section>
   );
 }
