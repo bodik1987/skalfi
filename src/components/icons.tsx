@@ -90,12 +90,17 @@ export function ScheduleIcon() {
       stroke-width="2"
       stroke-linecap="round"
       stroke-linejoin="round"
-      className="rotate-180 lucide-square-kanban-icon lucide-square-kanban"
     >
-      <rect width="18" height="18" x="3" y="3" rx="2" />
-      <path d="M8 7v7" />
-      <path d="M12 7v4" />
-      <path d="M16 7v9" />
+      <path d="M8 2v4" />
+      <path d="M16 2v4" />
+      <rect width="18" height="18" x="3" y="4" rx="2" />
+      <path d="M3 10h18" />
+      <path d="M8 14h.01" />
+      <path d="M12 14h.01" />
+      <path d="M16 14h.01" />
+      <path d="M8 18h.01" />
+      <path d="M12 18h.01" />
+      <path d="M16 18h.01" />
     </svg>
   );
 }
@@ -132,7 +137,44 @@ export function BurgerIcon() {
       stroke-width="2"
       stroke-linecap="round"
       stroke-linejoin="round"
-      className="lucide lucide-power-icon lucide-power"
+    >
+      <circle cx="12" cy="12" r="1" />
+      <circle cx="12" cy="5" r="1" />
+      <circle cx="12" cy="19" r="1" />
+    </svg>
+  );
+}
+export function AppInfoIcon() {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+      <circle cx="12" cy="12" r="10" />
+      <path d="M12 16v-4" />
+      <path d="M12 8h.01" />
+    </svg>
+  );
+}
+export function ExitIcon() {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
     >
       <path d="M12 2v10" />
       <path d="M18.4 6.6a9 9 0 1 1-12.77.04" />

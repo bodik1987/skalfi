@@ -10,9 +10,9 @@
 }
 
 .footer-button {
-  @apply flex-1 h-full flex justify-center items-center active:scale-95 active:bg-app-gray/10 rounded-2xl transition-all;
+  @apply flex-1 h-full flex justify-center items-center active:scale-95 rounded-2xl transition-all;
 }
 
 .burger-button {
-  @apply text-app-gray flex items-center gap-4 px-4 py-2 active:scale-95 active:bg-app-gray/10 rounded-md transition-all;
+  @apply text-app-gray flex items-center gap-4 px-4 py-2 active:scale-95 rounded-md transition-all;
 }

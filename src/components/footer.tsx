@@ -10,7 +10,7 @@ export default function Footer() {
     `${baseClasses} ${isActive ? activeClasses : inactiveClasses}`;
   return (
     <footer className="h-full bg-white border-t">
-      <div className="wrapper h-full flex justify-around items-center p-1">
+      <div className="wrapper h-full flex justify-around items-center p-2">
         <NavLink to="/schedule" className={getLinkClass}>
           <ScheduleIcon />
         </NavLink>

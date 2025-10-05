@@ -6,6 +6,8 @@ import Money from "./screens/money";
 import Docs from "./screens/docs";
 import Schedule from "./screens/schedule";
 import Totals from "./screens/totals";
+import AppInfo from "./screens/app-info";
+import UserInfo from "./screens/user-info";
 import "./index.css";
 
 createRoot(document.getElementById("root")!).render(
@@ -17,13 +19,8 @@ createRoot(document.getElementById("root")!).render(
         <Route path="/docs" element={<Docs />} />
         <Route path="/schedule" element={<Schedule />} />
         <Route path="/totals" element={<Totals />} />
-
-        {/* <Route path="folders">
-          <Route element={<Folders />}>
-            <Route index element={<div>Folders</div>} />
-            <Route path=":id" element={<div>Folder Id</div>} />
-          </Route>
-        </Route> */}
+        <Route path="/app_info" element={<AppInfo />} />
+        <Route path="/user_info" element={<UserInfo />} />
       </Route>
     </Routes>
   </BrowserRouter>
