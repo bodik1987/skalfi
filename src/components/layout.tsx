@@ -1,12 +1,17 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { ref, onValue, query, set } from "firebase/database";
+import { REALTIME_DATABASE, RD_PROJECT_NAME } from "../../firebase";
 import { Outlet } from "react-router";
+import useCheckConnection from "../hooks/useCheckConnection";
 import Burger from "./burger";
 import Header from "./header";
 import Footer from "./footer";
-import useCheckConnection from "../hooks/useCheckConnection";
+import { useUserStore } from "../store";
+import type { IUser } from "../types";
 
 export default function Layout() {
   const isOnline = useCheckConnection();
+
   const [isBurgerOpen, setBurgerOpen] = useState(false);
   const handleOpen = () => {
     setBurgerOpen(true);
@@ -15,6 +20,48 @@ export default function Layout() {
   const handleClose = () => {
     setBurgerOpen(false);
   };
+
+  const { user, loading, setUser, setLoading } = useUserStore();
+
+  const newUser: IUser = {
+    id: "66524",
+    name: "Bohdan Shulika",
+    startDate: "15-09-25",
+    firm: { title: "Correct", section: "WPSP2", position: "Operator maszyn" },
+  };
+
+  // CREATE
+  function createUser() {
+    set(ref(REALTIME_DATABASE, RD_PROJECT_NAME + "Bohdan"), newUser);
+  }
+
+  createUser();
+
+  // READ
+  useEffect(() => {
+    try {
+      const dbRef = query(ref(REALTIME_DATABASE, RD_PROJECT_NAME));
+      setLoading(true);
+
+      const unsubscribe = onValue(dbRef, (snapshot) => {
+        let currentUser: IUser | null = null;
+
+        snapshot.forEach((childSnapshot) => {
+          const childKey = childSnapshot.key;
+          const childData = childSnapshot.val();
+          currentUser = { ...childData, id: childKey };
+        });
+
+        setUser(currentUser);
+        setLoading(false);
+      });
+
+      return () => unsubscribe();
+    } catch (error) {
+      console.error(error);
+      setLoading(false);
+    }
+  }, [setUser, setLoading]);
 
   return (
     <>

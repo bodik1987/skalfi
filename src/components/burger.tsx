@@ -1,10 +1,13 @@
 import { NavLink } from "react-router";
 import { Drawer } from "vaul";
 import { AppInfoIcon, DocsIcon, ExitIcon, MoneyIcon, UserIcon } from "./icons";
+import { useUserStore } from "../store";
 
 type BurgerProps = { open: boolean; onClose: () => void };
 
 export default function Burger({ open, onClose }: BurgerProps) {
+  const { user, loading } = useUserStore();
+
   const baseClasses = "burger-button";
   const activeClasses = "bg-app-green !text-white";
   const inactiveClasses = "";
@@ -21,7 +24,9 @@ export default function Burger({ open, onClose }: BurgerProps) {
         <Drawer.Description />
 
         <div>
-          <div className="bg-app-green px-4 py-6 text-white">User</div>
+          <div className="bg-app-green px-4 py-6 text-white">
+            {loading ? <p>Loading...</p> : !user ? <p>No user</p> : user.name!}
+          </div>
 
           <div className="flex flex-col gap-2 p-2 pr-4">
             <NavLink to="/user_info" className={getLinkClass} onClick={onClose}>

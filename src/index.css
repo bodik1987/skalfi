@@ -5,6 +5,10 @@
   --color-app-green: #1bb396;
 }
 
+h1 {
+  @apply text-2xl font-semibold;
+}
+
 .wrapper {
   @apply w-full max-w-2xl mx-auto;
 }

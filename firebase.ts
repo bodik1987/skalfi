@@ -16,5 +16,5 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 // Realtime Database
-export const DATABASE = getDatabase(app);
-export const RD_PROJECT_ITEMS = "/app_skalfi/users/";
+export const REALTIME_DATABASE = getDatabase(app);
+export const RD_PROJECT_NAME = "/app_skalfi/users/";
