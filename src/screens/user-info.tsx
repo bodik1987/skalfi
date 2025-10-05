@@ -4,7 +4,7 @@ import { useUserStore } from "../store";
 export default function UserInfo() {
   const { user, loading } = useUserStore();
   return (
-    <div className="bg-white p-4">
+    <div className="bg-white p-4 rounded-md">
       <h1 className="text-center">
         {loading ? <p>Loading...</p> : !user ? <p>No user</p> : user.name!}
       </h1>

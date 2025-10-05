@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { ref, onValue, query } from "firebase/database";
+import { ref, onValue, query, set } from "firebase/database";
 import { REALTIME_DATABASE, RD_PROJECT_NAME } from "../../firebase";
 import { Outlet } from "react-router";
 import useCheckConnection from "../hooks/useCheckConnection";
@@ -23,19 +23,22 @@ export default function Layout() {
 
   const { setUser, setLoading } = useUserStore();
 
-  // const newUser: IUser = {
-  //   id: "66524",
-  //   name: "Bohdan Shulika",
-  //   startDate: "15-09-25",
-  //   firm: { title: "Correct", section: "WPSP2", position: "Operator maszyn" },
-  // };
+  const newUser: IUser = {
+    id: "66524",
+    name: "Bohdan Shulika",
+    startDate: "15-09-25",
+    firm: { title: "Correct", section: "WPSP2", position: "Operator maszyn" },
+    docs: [],
+    vocationHours: 56,
+    vocationChildrenHours: 2,
+  };
 
-  // // CREATE
-  // function createUser() {
-  //   set(ref(REALTIME_DATABASE, RD_PROJECT_NAME + "Bohdan"), newUser);
-  // }
+  // CREATE
+  function createUser() {
+    set(ref(REALTIME_DATABASE, RD_PROJECT_NAME + newUser.id), newUser);
+  }
 
-  // createUser();
+  createUser();
 
   // READ
   useEffect(() => {
@@ -68,7 +71,7 @@ export default function Layout() {
       <Burger open={isBurgerOpen} onClose={handleClose} />
 
       {isOnline ? (
-        <section className="grid grid-rows-[48px_1fr_60px] min-h-dvh">
+        <section className="grid grid-rows-[48px_1fr] pb-[60px] min-h-dvh">
           <Header onOpen={handleOpen} />
           <section className="bg-app-gray">
             <div className="wrapper p-2">

@@ -9,7 +9,7 @@ export default function Footer() {
   const getLinkClass = ({ isActive }: { isActive: boolean }) =>
     `${baseClasses} ${isActive ? activeClasses : inactiveClasses}`;
   return (
-    <footer className="h-full bg-white border-t">
+    <footer className="fixed bottom-0 inset-x-0 h-[60px] bg-white border-t z-10">
       <div className="wrapper h-full flex justify-around items-center p-2">
         <NavLink to="/schedule" className={getLinkClass}>
           <ScheduleIcon />
