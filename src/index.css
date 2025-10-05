@@ -26,5 +26,5 @@ h2 {
 }
 
 .burger-button {
-  @apply text-app-gray flex items-center gap-4 px-4 py-2 active:scale-95 rounded-md transition-all;
+  @apply text-app-gray flex items-center gap-4 px-4 py-2.5 active:scale-95 rounded-md transition-all;
 }

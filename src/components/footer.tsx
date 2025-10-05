@@ -3,7 +3,7 @@ import { DocsIcon, HomeIcon, ScheduleIcon, TotalsIcon } from "./icons";
 
 export default function Footer() {
   const baseClasses = "footer-button";
-  const activeClasses = "bg-app-green";
+  const activeClasses = "bg-app-green !text-white";
   const inactiveClasses = "";
 
   const getLinkClass = ({ isActive }: { isActive: boolean }) =>

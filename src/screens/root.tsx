@@ -19,20 +19,29 @@ export default function Root() {
           </div>
         )}
         <div className="wrapper fixed bottom-[60px] inset-x-0 px-4 py-4 bg-app-green text-white rounded-t-2xl w-full z-10">
-          <button
-            onClick={() => setExpanded(!expanded)}
-            className="block bg-white text-app-green rounded-2xl h-8 px-6 cursor-pointer mx-auto"
-          >
-            <div className={`${expanded && "rotate-180"}`}>
-              <ChevronsUpIcon />
-            </div>
-          </button>
+          <div className="flex gap-4 pb-4 justify-between items-start">
+            {expanded ? (
+              <h2>Wymiar urlopu 2025</h2>
+            ) : (
+              <div className="text-left">
+                <h2>Statystyka</h2>
+                <p className="font-semibold">05.10.25</p>
+              </div>
+            )}
+
+            <button
+              onClick={() => setExpanded(!expanded)}
+              className="bg-white text-app-green rounded-2xl h-8 px-6 cursor-pointer"
+            >
+              <div className={`${expanded && "rotate-180"}`}>
+                <ChevronsUpIcon />
+              </div>
+            </button>
+          </div>
 
           {expanded ? (
-            <div>
-              <h2 className="mt-2 text-center">Wymiar urlopu 2025</h2>
-
-              <div className="mt-4 flex bg-white text-black p-2 rounded-md">
+            <div className="flex flex-col gap-4">
+              <div className="flex bg-white text-black p-2 rounded-md">
                 <p className="font-semibold">Urlop wypoczynkowy</p>
                 <div className="flex gap-2 ml-2">
                   <div>
@@ -54,8 +63,8 @@ export default function Root() {
                 </div>
               </div>
 
-              <div className="mt-4 flex bg-white text-black p-2 rounded-md">
-                <p className="font-semibold">Urlop opieka nad dziecom</p>
+              <div className="flex bg-white text-black p-2 rounded-md">
+                <p className="font-semibold">Urlop opieka nad dziec.</p>
                 <div className="flex gap-2 ml-2">
                   <div>
                     <p className="text-sm">Wymiar</p>
@@ -77,9 +86,23 @@ export default function Root() {
               </div>
             </div>
           ) : (
-            <div className="flex justify-between">
-              <h2>Statystyka</h2>
-              <p>05.10.25</p>
+            <div className="flex flex-col gap-4">
+              <div className="flex justify-between">
+                <p className="opacity-70">Godziny rozpoczęcia</p>
+                <p className="text-lg font-semibold bg-white/20 min-w-16 text-center px-3 py-0.5 rounded-2xl">
+                  6:00
+                </p>
+              </div>
+              <div className="flex justify-between">
+                <p className="opacity-70">Godziny rozpoczęcia</p>
+                <p className="text-lg font-semibold bg-black/20 min-w-16 text-center px-3 py-0.5 rounded-2xl">
+                  Wolne
+                </p>
+              </div>
+              <div className="flex justify-between">
+                <p className="opacity-70">Godziny pracy</p>
+                <p className="text-lg font-semibold">8:00</p>
+              </div>
             </div>
           )}
         </div>
