@@ -1,4 +1,4 @@
-import { BurgerIcon } from "./icons";
+import { BurgerIcon, MessegesIcon } from "./icons";
 
 type HeaderProps = { onOpen: () => void };
 
@@ -10,12 +10,16 @@ export default function Header({ onOpen }: HeaderProps) {
           onClick={() => {
             onOpen();
           }}
-          className="w-12 text-app-green active:scale-95 transition-transform aspect-square z-10 cursor-pointer"
+          className="header-button"
           aria-label="Menu"
         >
           <BurgerIcon />
         </button>
-        <div className="flex items-center gap-4">Left</div>
+        <div className="flex items-center gap-4">
+          <button className="header-button">
+            <MessegesIcon />
+          </button>
+        </div>
       </div>
     </header>
   );

@@ -9,6 +9,10 @@
   @apply w-full max-w-2xl mx-auto;
 }
 
+.header-button {
+  @apply w-12 flex justify-center items-center text-app-green active:scale-95 transition-transform aspect-square z-10 cursor-pointer;
+}
+
 .footer-button {
   @apply flex-1 h-full flex justify-center items-center active:scale-95 rounded-2xl transition-all;
 }
