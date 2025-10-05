@@ -29,8 +29,8 @@ export default function Layout() {
     startDate: "15-09-25",
     firm: { title: "Correct", section: "WPSP2", position: "Operator maszyn" },
     docs: [],
-    vocationHours: 56,
-    vocationChildrenHours: 2,
+    vocationHours: [56, 48],
+    vocationChildrenDays: [2, 2],
   };
 
   // CREATE

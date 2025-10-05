@@ -21,6 +21,6 @@ export interface IUser {
   firm: FirmProps;
   startDate: string;
   docs?: DocProps[];
-  vocationHours: number;
-  vocationChildrenHours: number;
+  vocationHours: number[];
+  vocationChildrenDays: number[];
 }
