@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { ref, onValue, query, set } from "firebase/database";
+import { ref, onValue, query } from "firebase/database";
 import { REALTIME_DATABASE, RD_PROJECT_NAME } from "../../firebase";
 import { Outlet } from "react-router";
 import useCheckConnection from "../hooks/useCheckConnection";
@@ -21,21 +21,21 @@ export default function Layout() {
     setBurgerOpen(false);
   };
 
-  const { user, loading, setUser, setLoading } = useUserStore();
+  const { setUser, setLoading } = useUserStore();
 
-  const newUser: IUser = {
-    id: "66524",
-    name: "Bohdan Shulika",
-    startDate: "15-09-25",
-    firm: { title: "Correct", section: "WPSP2", position: "Operator maszyn" },
-  };
+  // const newUser: IUser = {
+  //   id: "66524",
+  //   name: "Bohdan Shulika",
+  //   startDate: "15-09-25",
+  //   firm: { title: "Correct", section: "WPSP2", position: "Operator maszyn" },
+  // };
 
-  // CREATE
-  function createUser() {
-    set(ref(REALTIME_DATABASE, RD_PROJECT_NAME + "Bohdan"), newUser);
-  }
+  // // CREATE
+  // function createUser() {
+  //   set(ref(REALTIME_DATABASE, RD_PROJECT_NAME + "Bohdan"), newUser);
+  // }
 
-  createUser();
+  // createUser();
 
   // READ
   useEffect(() => {
