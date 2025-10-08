@@ -35,7 +35,7 @@ export default function CircularTimer() {
           cy={radius}
         />
         <circle
-          stroke="#22c55e"
+          stroke="#1BB396"
           fill="transparent"
           strokeWidth={stroke}
           strokeLinecap="round"
