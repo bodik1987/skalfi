@@ -37,6 +37,7 @@ export default function Layout() {
       "04-10-2025",
       "05-10-2025",
       "11-10-2025",
+      "14-10-2025",
       "12-10-2025",
       "18-10-2025",
       "19-10-2025",
@@ -87,7 +88,9 @@ export default function Layout() {
           <Header onOpen={handleOpen} />
           <section
             className={`${
-              location.pathname !== "/" ? "bg-[#E0E0E0]" : "bg-app-gray"
+              location.pathname !== "/" && location.pathname !== "/schedule"
+                ? "bg-[#E0E0E0]"
+                : "bg-app-gray"
             }`}
           >
             <div className="wrapper">

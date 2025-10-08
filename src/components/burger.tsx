@@ -73,7 +73,6 @@ export default function Burger({ open, onClose }: BurgerProps) {
         </Drawer.Content>
       </Drawer.Root>
 
-      {/* Модалка выхода */}
       {logoutModal && (
         <div
           className="fixed inset-0 bg-black/50 flex items-center justify-center z-50"

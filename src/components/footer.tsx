@@ -20,9 +20,6 @@ export default function Footer() {
         <NavLink to="/docs" className={getLinkClass}>
           <DocsIcon />
         </NavLink>
-        <NavLink to="/totals" className={getLinkClass}>
-          <TotalsIcon />
-        </NavLink>
       </div>
     </footer>
   );
