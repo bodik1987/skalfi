@@ -55,7 +55,49 @@ export default function Root() {
 
           {expanded ? (
             <div className="flex flex-col gap-4">
-              {/* ... блоки urlopu без изменений ... */}
+              <div className="flex bg-white text-black p-2 rounded-md">
+                <p className="font-semibold">Urlop wypoczynkowy</p>
+                <div className="flex gap-2 ml-2">
+                  <div>
+                    <p className="text-sm">Wymiar</p>
+                    <p className="font-semibold text-right">
+                      {user?.vocationHours[0]}
+                    </p>
+                  </div>
+                  <div className="border-x border-gray-400 px-2">
+                    <p className="text-sm">Pozostalo</p>
+                    <p className="font-semibold text-right">
+                      {user?.vocationHours[1]}
+                    </p>
+                  </div>
+                  <div>
+                    <p className="text-sm">Jednostka</p>
+                    <p className="font-semibold text-right">godziny</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex bg-white text-black p-2 rounded-md">
+                <p className="font-semibold">Urlop opieka nad dziec.</p>
+                <div className="flex gap-2 ml-2">
+                  <div>
+                    <p className="text-sm">Wymiar</p>
+                    <p className="font-semibold text-right">
+                      {user?.vocationChildrenDays[0]}
+                    </p>
+                  </div>
+                  <div className="border-x border-gray-400 px-2">
+                    <p className="text-sm">Pozostalo</p>
+                    <p className="font-semibold text-right">
+                      {user?.vocationChildrenDays[1]}
+                    </p>
+                  </div>
+                  <div>
+                    <p className="text-sm">Jednostka</p>
+                    <p className="font-semibold text-right">dni</p>
+                  </div>
+                </div>
+              </div>
             </div>
           ) : (
             <div className="flex flex-col gap-4">
