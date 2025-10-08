@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { ref, onValue, query, set } from "firebase/database";
 import { REALTIME_DATABASE, RD_PROJECT_NAME } from "../../firebase";
-import { Outlet } from "react-router";
+import { Outlet, useLocation } from "react-router";
 import useCheckConnection from "../hooks/useCheckConnection";
 import Burger from "./burger";
 import Header from "./header";
@@ -10,6 +10,8 @@ import { useUserStore } from "../store";
 import type { IUser } from "../types";
 
 export default function Layout() {
+  const location = useLocation();
+
   const isOnline = useCheckConnection();
 
   const [isBurgerOpen, setBurgerOpen] = useState(false);
@@ -71,10 +73,14 @@ export default function Layout() {
       <Burger open={isBurgerOpen} onClose={handleClose} />
 
       {isOnline ? (
-        <section className="grid grid-rows-[48px_1fr] pb-[60px] min-h-dvh">
+        <section className="grid grid-rows-[auto_1fr] pb-[60px] min-h-dvh">
           <Header onOpen={handleOpen} />
-          <section className="bg-app-gray">
-            <div className="wrapper p-2">
+          <section
+            className={`${
+              location.pathname !== "/" ? "bg-[#E0E0E0]" : "bg-app-gray"
+            }`}
+          >
+            <div className="wrapper">
               <Outlet />
             </div>
           </section>
