@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { ChevronsUpIcon } from "../components/icons";
 import { useUserStore } from "../store";
+import CircularTimer from "../components/circular-timer";
 
 export default function Root() {
   const { user, loading } = useUserStore();
@@ -13,9 +14,7 @@ export default function Root() {
           <div className="w-full text-gray-500 animate-pulse">Loading...</div>
         ) : (
           <div className="text-white">
-            <p>Диаграмма круговая обратного отчета</p>
-            <p>Осталось до работы/конца</p>
-            <p>Дата</p>
+            <CircularTimer />
             <p>Карусель дат</p>
           </div>
         )}
