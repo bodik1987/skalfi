@@ -65,7 +65,7 @@ export default function WeekCarousel() {
           drag="x"
           dragConstraints={{ left: 0, right: 0 }}
           dragElastic={0.6}
-          onDragEnd={(e, { offset, velocity }) => {
+          onDragEnd={(_, { offset, velocity }) => {
             const swipe = Math.abs(offset.x) > 80 || Math.abs(velocity.x) > 200;
             if (swipe) paginate(offset.x < 0 ? 1 : -1);
           }}
