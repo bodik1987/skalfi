@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
+import { useDateStore } from "../store";
 
 export default function CircularTimer() {
   const [progress, setProgress] = useState(0);
+  const { selectedDate } = useDateStore();
 
   useEffect(() => {
     const duration = 5000; // время анимации (мс)
@@ -22,6 +24,14 @@ export default function CircularTimer() {
   const normalizedRadius = radius - stroke * 0.5;
   const circumference = normalizedRadius * 2 * Math.PI;
   const offset = circumference - (progress / 100) * circumference;
+
+  function formatDate(date: Date) {
+    return date.toLocaleDateString("pl-PL", {
+      day: "2-digit",
+      month: "2-digit",
+      year: "numeric",
+    });
+  }
 
   return (
     <div className="flex items-center justify-center">
@@ -49,7 +59,9 @@ export default function CircularTimer() {
       </svg>
       <div className="absolute flex flex-col items-center text-white">
         <span className="text-3xl font-semibold">08:00:00</span>
-        <span className="text-lg text-gray-300">2025-10-06</span>
+        <span className="text-lg text-gray-300">
+          {formatDate(selectedDate)}
+        </span>
       </div>
     </div>
   );

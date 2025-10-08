@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useDateStore } from "../store";
 
 const dayNames = [
   "Niedziela",
@@ -20,16 +21,14 @@ function formatDate(date: Date) {
 }
 
 export default function WeekCarousel() {
-  const [currentDate, setCurrentDate] = useState(new Date());
+  const { selectedDate, setSelectedDate } = useDateStore();
   const [direction, setDirection] = useState<1 | -1>(1);
 
   const paginate = (newDirection: 1 | -1) => {
     setDirection(newDirection);
-    setCurrentDate((prev) => {
-      const newDate = new Date(prev);
-      newDate.setDate(prev.getDate() + newDirection);
-      return newDate;
-    });
+    const newDate = new Date(selectedDate);
+    newDate.setDate(selectedDate.getDate() + newDirection);
+    setSelectedDate(newDate);
   };
 
   const variants = {
@@ -56,7 +55,7 @@ export default function WeekCarousel() {
     <div className="relative flex items-center justify-center w-full h-48 overflow-hidden text-white">
       <AnimatePresence custom={direction}>
         <motion.div
-          key={currentDate.toDateString()}
+          key={selectedDate.toDateString()}
           custom={direction}
           variants={variants}
           initial="enter"
@@ -74,30 +73,30 @@ export default function WeekCarousel() {
           {/* Wczoraj */}
           <div className="w-[10%] text-center opacity-60 scale-90">
             <div className="text-sm">
-              {dayNames[new Date(currentDate.getTime() - 86400000).getDay()]}
+              {dayNames[new Date(selectedDate.getTime() - 86400000).getDay()]}
             </div>
             <div className="text-xs text-gray-400">
-              {formatDate(new Date(currentDate.getTime() - 86400000))}
+              {formatDate(new Date(selectedDate.getTime() - 86400000))}
             </div>
           </div>
 
           {/* Dzisiaj */}
           <div className="w-[80%] text-center">
             <div className="text-2xl font-semibold">
-              {dayNames[currentDate.getDay()]}
+              {dayNames[selectedDate.getDay()]}
             </div>
             <div className="text-sm text-gray-300">
-              {formatDate(currentDate)}
+              {formatDate(selectedDate)}
             </div>
           </div>
 
           {/* Jutro */}
           <div className="w-[10%] text-center opacity-60 scale-90">
             <div className="text-sm">
-              {dayNames[new Date(currentDate.getTime() + 86400000).getDay()]}
+              {dayNames[new Date(selectedDate.getTime() + 86400000).getDay()]}
             </div>
             <div className="text-xs text-gray-400">
-              {formatDate(new Date(currentDate.getTime() + 86400000))}
+              {formatDate(new Date(selectedDate.getTime() + 86400000))}
             </div>
           </div>
         </motion.div>

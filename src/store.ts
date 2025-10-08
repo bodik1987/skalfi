@@ -8,9 +8,19 @@ interface UserState {
   setLoading: (value: boolean) => void;
 }
 
+interface DateState {
+  selectedDate: Date;
+  setSelectedDate: (date: Date) => void;
+}
+
 export const useUserStore = create<UserState>((set) => ({
   user: null,
   loading: true,
   setUser: (user) => set({ user }),
   setLoading: (value) => set({ loading: value }),
+}));
+
+export const useDateStore = create<DateState>((set) => ({
+  selectedDate: new Date(),
+  setSelectedDate: (date) => set({ selectedDate: date }),
 }));
