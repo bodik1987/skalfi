@@ -1,5 +1,5 @@
 import { NavLink } from "react-router";
-import { DocsIcon, HomeIcon, ScheduleIcon, TotalsIcon } from "./icons";
+import { DocsIcon, HomeIcon, ScheduleIcon } from "./icons";
 
 export default function Footer() {
   const baseClasses = "footer-button";
