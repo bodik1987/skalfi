@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useDateStore } from "../store";
+import { useDateStore, useUserStore } from "../store";
 
 export default function CircularTimer() {
   const [progress, setProgress] = useState(0);
@@ -25,13 +25,18 @@ export default function CircularTimer() {
   const circumference = normalizedRadius * 2 * Math.PI;
   const offset = circumference - (progress / 100) * circumference;
 
+  // формат даты DD-MM-YYYY
   function formatDate(date: Date) {
-    return date.toLocaleDateString("pl-PL", {
-      day: "2-digit",
-      month: "2-digit",
-      year: "numeric",
-    });
+    const d = String(date.getDate()).padStart(2, "0");
+    const m = String(date.getMonth() + 1).padStart(2, "0");
+    const y = date.getFullYear();
+    return `${d}-${m}-${y}`;
   }
+
+  const { user } = useUserStore();
+
+  const formatted = formatDate(selectedDate);
+  const isFreeDay = user?.freeDays?.includes(formatted);
 
   return (
     <div className="flex items-center justify-center">
@@ -45,7 +50,7 @@ export default function CircularTimer() {
           cy={radius}
         />
         <circle
-          stroke="#1BB396"
+          stroke={isFreeDay ? "#F87171" : "#1BB396"} // 🔴 красная обводка в выходной
           fill="transparent"
           strokeWidth={stroke}
           strokeLinecap="round"
@@ -57,11 +62,19 @@ export default function CircularTimer() {
           className="transition-all duration-75"
         />
       </svg>
+
       <div className="absolute flex flex-col items-center text-white">
-        <span className="text-3xl font-semibold">08:00:00</span>
-        <span className="text-lg text-gray-300">
-          {formatDate(selectedDate)}
-        </span>
+        {isFreeDay ? (
+          <>
+            <span className="text-3xl font-semibold text-red-400">Wolne</span>
+            <span className="text-lg text-gray-400">{formatted}</span>
+          </>
+        ) : (
+          <>
+            <span className="text-3xl font-semibold">08:00:00</span>
+            <span className="text-lg text-gray-300">{formatted}</span>
+          </>
+        )}
       </div>
     </div>
   );

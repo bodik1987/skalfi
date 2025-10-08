@@ -33,6 +33,16 @@ export default function Layout() {
     docs: [],
     vocationHours: [56, 48],
     vocationChildrenDays: [2, 2],
+    freeDays: [
+      "04-10-2025",
+      "05-10-2025",
+      "11-10-2025",
+      "12-10-2025",
+      "18-10-2025",
+      "19-10-2025",
+      "25-10-2025",
+      "26-10-2025",
+    ],
   };
 
   // CREATE

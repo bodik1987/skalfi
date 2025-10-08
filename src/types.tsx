@@ -23,4 +23,5 @@ export interface IUser {
   docs?: DocProps[];
   vocationHours: number[];
   vocationChildrenDays: number[];
+  freeDays?: string[];
 }
