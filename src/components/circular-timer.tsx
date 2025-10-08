@@ -17,7 +17,7 @@ export default function CircularTimer() {
     requestAnimationFrame(animate);
   }, []);
 
-  const radius = 100;
+  const radius = 130;
   const stroke = 8;
   const normalizedRadius = radius - stroke * 0.5;
   const circumference = normalizedRadius * 2 * Math.PI;
@@ -48,7 +48,7 @@ export default function CircularTimer() {
         />
       </svg>
       <div className="absolute flex flex-col items-center text-white">
-        <span className="text-xl font-semibold">08:00:00</span>
+        <span className="text-3xl font-semibold">08:00:00</span>
         <span className="text-lg text-gray-300">2025-10-06</span>
       </div>
     </div>
