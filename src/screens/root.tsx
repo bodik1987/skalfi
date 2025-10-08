@@ -2,20 +2,21 @@ import { useState } from "react";
 import { ChevronsUpIcon } from "../components/icons";
 import { useUserStore } from "../store";
 import CircularTimer from "../components/circular-timer";
+import WeekCarousel from "../components/week-carousel";
 
 export default function Root() {
   const { user, loading } = useUserStore();
   const [expanded, setExpanded] = useState(false);
 
   return (
-    <div className="p-2 flex flex-col items-center">
+    <div className="flex flex-col items-center">
       <div className="wrapper">
         {loading ? (
           <div className="w-full text-gray-500 animate-pulse">Loading...</div>
         ) : (
-          <div className="text-white">
+          <div className="mt-6 text-white">
             <CircularTimer />
-            <p>Карусель дат</p>
+            <WeekCarousel />
           </div>
         )}
         <div className="wrapper fixed bottom-[60px] inset-x-0 px-4 py-4 bg-app-green text-white rounded-t-2xl w-full z-10">
