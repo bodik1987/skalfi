@@ -1,6 +1,6 @@
 import { NavLink } from "react-router";
 import { Drawer } from "vaul";
-import { DocsIcon, ExitIcon, UserIcon } from "./icons";
+import { DocsIcon, UserIcon } from "./icons";
 import { user } from "../seed";
 
 type BurgerProps = { open: boolean; onClose: () => void };
