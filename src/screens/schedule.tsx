@@ -1,9 +1,7 @@
 import Calendar from "../components/calendar";
-import { useUserStore } from "../store";
+import { user } from "../seed";
 
 export default function Schedule() {
-  const { user } = useUserStore();
-
   const totalDays = 31; // можешь подставлять динамически, если нужно
   const freeDaysCount = user?.freeDays?.length || 0;
   const plannedHours = (totalDays - freeDaysCount) * 8;

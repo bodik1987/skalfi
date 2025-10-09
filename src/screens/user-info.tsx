@@ -1,13 +1,10 @@
 import { AppInfoIcon, FirmIcon, ScheduleIcon } from "../components/icons";
-import { useUserStore } from "../store";
+import { user } from "../seed";
 
 export default function UserInfo() {
-  const { user, loading } = useUserStore();
   return (
     <div className="bg-white p-4">
-      <h1 className="text-center">
-        {loading ? <p>Loading...</p> : !user ? <p>No user</p> : user.name!}
-      </h1>
+      <h1 className="text-center">{user.name}</h1>
 
       <div className="h-px w-full bg-app-gray my-4" />
 

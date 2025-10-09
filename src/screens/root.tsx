@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { ChevronsUpIcon } from "../components/icons";
-import { useDateStore, useUserStore } from "../store";
+import { useDateStore } from "../store";
 import CircularTimer from "../components/circular-timer";
 import WeekCarousel from "../components/week-carousel";
+import { user } from "../seed";
 
 export default function Root() {
-  const { user, loading } = useUserStore();
   const [expanded, setExpanded] = useState(false);
   const { selectedDate } = useDateStore();
 
@@ -18,19 +18,15 @@ export default function Root() {
   };
 
   const formattedDate = selectedDate ? formatDate(selectedDate) : "";
-  const isFreeDay = user?.freeDays?.includes(formattedDate);
+  const isFreeDay = user.freeDays?.includes(formattedDate);
 
   return (
     <div className="flex flex-col items-center">
       <div className="wrapper">
-        {loading ? (
-          <div className="w-full text-gray-500 animate-pulse">Loading...</div>
-        ) : (
-          <div className="mt-6 text-white">
-            <CircularTimer />
-            <WeekCarousel />
-          </div>
-        )}
+        <div className="mt-6 text-white">
+          <CircularTimer />
+          <WeekCarousel />
+        </div>
 
         <div className="wrapper fixed bottom-[60px] inset-x-0 px-4 py-4 bg-app-green text-white rounded-t-2xl w-full z-10">
           <div className="flex gap-4 pb-4 justify-between items-start">

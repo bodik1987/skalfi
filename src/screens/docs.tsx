@@ -1,10 +1,9 @@
 import { useState } from "react";
 import { ClockIcon } from "../components/icons";
-import { useUserStore } from "../store";
+import { user } from "../seed";
 
 export default function Docs() {
   const [activeTab, setActiveTab] = useState("0");
-  const { user } = useUserStore();
 
   function formatDate(date: string | Date) {
     if (!date) return "-";

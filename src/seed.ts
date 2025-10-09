@@ -1,0 +1,50 @@
+import type { IUser } from "./types";
+
+export const user: IUser = {
+  id: "66524",
+  name: "Bohdan Shulika",
+  startDate: "15-09-25",
+  firm: { title: "Correct", section: "WPSP2", position: "Operator maszyn" },
+  docs: [
+    {
+      id: "1",
+      type: "time",
+      dateOfGeneration: "2025-10-09T09:30:00Z",
+      dateOfBegin: "2025-10-15T04:00:00Z",
+      dateOfEnd: "2025-10-15T12:00:00Z",
+      status: "confirmed",
+      comment: "",
+    },
+    {
+      id: "2",
+      type: "vacation",
+      dateOfGeneration: "2025-10-09T09:30:00Z",
+      dateOfBegin: "2025-10-15T04:00:00Z",
+      dateOfEnd: "2025-10-15T12:00:00Z",
+      status: "submitted",
+      comment: "",
+    },
+    {
+      id: "3",
+      type: "vacation",
+      dateOfGeneration: "2025-10-09T09:30:00Z",
+      dateOfBegin: "2025-10-25T04:00:00Z",
+      dateOfEnd: "2025-10-27T12:00:00Z",
+      status: "confirmed",
+      comment: "",
+    },
+  ],
+  vocationHours: [56, 48],
+  vocationChildrenDays: [2, 2],
+  freeDays: [
+    "04-10-2025",
+    "05-10-2025",
+    "11-10-2025",
+    "14-10-2025",
+    "12-10-2025",
+    "18-10-2025",
+    "19-10-2025",
+    "25-10-2025",
+    "26-10-2025",
+  ],
+};

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { useDateStore, useUserStore } from "../store";
+import { useDateStore } from "../store";
+import { user } from "../seed";
 
 export default function CircularTimer() {
   const [progress, setProgress] = useState(0);
@@ -33,10 +34,8 @@ export default function CircularTimer() {
     return `${d}-${m}-${y}`;
   }
 
-  const { user } = useUserStore();
-
   const formatted = formatDate(selectedDate);
-  const isFreeDay = user?.freeDays?.includes(formatted);
+  const isFreeDay = user.freeDays?.includes(formatted);
 
   return (
     <div className="flex items-center justify-center">
