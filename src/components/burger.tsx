@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { NavLink } from "react-router";
 import { Drawer } from "vaul";
-import { AppInfoIcon, DocsIcon, ExitIcon, MoneyIcon, UserIcon } from "./icons";
+import { AppInfoIcon, DocsIcon, ExitIcon, UserIcon } from "./icons";
 import { useUserStore } from "../store";
 
 type BurgerProps = { open: boolean; onClose: () => void };
@@ -48,10 +48,6 @@ export default function Burger({ open, onClose }: BurgerProps) {
               <NavLink to="/docs" className={getLinkClass} onClick={onClose}>
                 <DocsIcon />
                 <span>Wnioski</span>
-              </NavLink>
-              <NavLink to="/money" className={getLinkClass} onClick={onClose}>
-                <MoneyIcon />
-                <span>Premie</span>
               </NavLink>
               <NavLink
                 to="/app_info"

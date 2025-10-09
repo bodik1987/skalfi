@@ -2,7 +2,6 @@ import { createRoot } from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router";
 import Layout from "./components/layout";
 import Root from "./screens/root";
-import Money from "./screens/money";
 import Docs from "./screens/docs";
 import Schedule from "./screens/schedule";
 import AppInfo from "./screens/app-info";
@@ -14,7 +13,6 @@ createRoot(document.getElementById("root")!).render(
     <Routes>
       <Route element={<Layout />}>
         <Route index element={<Root />} />
-        <Route path="/money" element={<Money />} />
         <Route path="/docs" element={<Docs />} />
         <Route path="/schedule" element={<Schedule />} />
         <Route path="/app_info" element={<AppInfo />} />
