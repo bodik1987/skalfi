@@ -30,7 +30,17 @@ export default function Layout() {
     name: "Bohdan Shulika",
     startDate: "15-09-25",
     firm: { title: "Correct", section: "WPSP2", position: "Operator maszyn" },
-    docs: [],
+    docs: [
+      {
+        id: "1",
+        type: "time",
+        dateOfGeneration: new Date("2025-10-09T09:30:00Z"),
+        dateOfBegin: new Date("2025-10-15T10:00:00Z"),
+        dateOfEnd: new Date("2025-10-15T12:30:00Z"),
+        status: "confirmed",
+        comment: "",
+      },
+    ],
     vocationHours: [56, 48],
     vocationChildrenDays: [2, 2],
     freeDays: [

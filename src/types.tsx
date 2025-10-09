@@ -6,12 +6,11 @@ type FirmProps = {
 
 type DocProps = {
   id: string;
-  title: string;
   type: "vacation" | "time";
   dateOfGeneration: Date;
   dateOfBegin: Date;
   dateOfEnd: Date;
-  status: "submitted" | "Confirmed" | "Rejected";
+  status: "submitted" | "confirmed" | "rejected";
   comment: string;
 };
 
