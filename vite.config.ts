@@ -10,9 +10,9 @@ export default defineConfig({
     VitePWA({
       registerType: "autoUpdate",
       manifest: {
-        name: "Skalfi_bohdan",
-        short_name: "Skalfi_bohdan",
-        description: "Skalfi_bohdan",
+        name: "Skal_bohdan",
+        short_name: "Skal_bohdan",
+        description: "Skal_bohdan",
         theme_color: "#36373c",
         orientation: "portrait",
         icons: [
