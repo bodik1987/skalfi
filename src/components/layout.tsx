@@ -84,7 +84,7 @@ export default function Layout() {
       <Burger open={isBurgerOpen} onClose={handleClose} />
 
       {isOnline ? (
-        <section className="grid grid-rows-[auto_1fr] pb-[60px] min-h-screen">
+        <section className="grid grid-rows-[auto_1fr] min-h-dvh">
           <Header onOpen={handleOpen} />
           <section
             className={`${

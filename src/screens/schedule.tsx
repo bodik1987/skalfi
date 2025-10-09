@@ -18,7 +18,7 @@ export default function Schedule() {
       </div>
 
       {/* Контент */}
-      <div className="flex flex-col min-h-[calc(100vh-120px)]">
+      <div className="flex flex-col pb-[60px] min-h-[calc(100vh-60px)]">
         <Calendar userFreeDays={user?.freeDays || []} />
 
         {/* Нижний блок с итогами */}
