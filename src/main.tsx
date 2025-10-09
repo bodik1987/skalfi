@@ -4,7 +4,6 @@ import Layout from "./components/layout";
 import Root from "./screens/root";
 import Docs from "./screens/docs";
 import Schedule from "./screens/schedule";
-import AppInfo from "./screens/app-info";
 import UserInfo from "./screens/user-info";
 import "./index.css";
 
@@ -15,7 +14,6 @@ createRoot(document.getElementById("root")!).render(
         <Route index element={<Root />} />
         <Route path="/docs" element={<Docs />} />
         <Route path="/schedule" element={<Schedule />} />
-        <Route path="/app_info" element={<AppInfo />} />
         <Route path="/user_info" element={<UserInfo />} />
       </Route>
     </Routes>
