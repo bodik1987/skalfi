@@ -20,7 +20,7 @@ export default function Docs() {
   return (
     <>
       <div className="bg-app-green w-full shadow-md">
-        <div className="wrapper flex justify-around">
+        <div className="pt-2 wrapper flex justify-around">
           <button
             onClick={() => setActiveTab("0")}
             className={`${
