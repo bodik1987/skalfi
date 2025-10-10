@@ -5,6 +5,10 @@
   --color-app-green: #1bb396;
 }
 
+:root {
+  --vh: 1vh;
+}
+
 h1 {
   @apply text-2xl font-semibold;
 }

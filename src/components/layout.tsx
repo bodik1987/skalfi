@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Outlet, useLocation } from "react-router";
 import useCheckConnection from "../hooks/useCheckConnection";
 import Burger from "./burger";
@@ -9,6 +9,24 @@ export default function Layout() {
   const { pathname } = useLocation();
   const isOnline = useCheckConnection();
   const [isBurgerOpen, setIsBurgerOpen] = useState(false);
+  const [vh, setVh] = useState(window.innerHeight * 0.01);
+
+  useEffect(() => {
+    const setViewportHeight = () => {
+      const vhValue = window.innerHeight * 0.01;
+      setVh(vhValue);
+      document.documentElement.style.setProperty("--vh", `${vhValue}px`);
+    };
+
+    setViewportHeight();
+    window.visualViewport?.addEventListener("resize", setViewportHeight);
+    window.addEventListener("orientationchange", setViewportHeight);
+
+    return () => {
+      window.visualViewport?.removeEventListener("resize", setViewportHeight);
+      window.removeEventListener("orientationchange", setViewportHeight);
+    };
+  }, []);
 
   if (!isOnline) {
     return (
@@ -26,9 +44,12 @@ export default function Layout() {
   return (
     <>
       <Burger open={isBurgerOpen} onClose={() => setIsBurgerOpen(false)} />
-      <section className="flex flex-col h-dvh">
+      <section
+        className="flex flex-col"
+        style={{ height: `calc(var(--vh, 1vh) * 100)` }}
+      >
         <Header onOpen={() => setIsBurgerOpen(true)} />
-        <section className={`${bgColor} h-full`}>
+        <section className={`${bgColor} flex-1 overflow-auto`}>
           <Outlet />
         </section>
         <Footer />
