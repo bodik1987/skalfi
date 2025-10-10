@@ -9,13 +9,13 @@ export default function Layout() {
   const { pathname } = useLocation();
   const isOnline = useCheckConnection();
   const [isBurgerOpen, setIsBurgerOpen] = useState(false);
-  const [vh, setVh] = useState(window.innerHeight * 0.01);
 
   useEffect(() => {
     const setViewportHeight = () => {
-      const vhValue = window.innerHeight * 0.01;
-      setVh(vhValue);
-      document.documentElement.style.setProperty("--vh", `${vhValue}px`);
+      document.documentElement.style.setProperty(
+        "--vh",
+        `${window.innerHeight * 0.01}px`
+      );
     };
 
     setViewportHeight();
