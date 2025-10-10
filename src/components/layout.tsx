@@ -26,9 +26,9 @@ export default function Layout() {
   return (
     <>
       <Burger open={isBurgerOpen} onClose={() => setIsBurgerOpen(false)} />
-      <section className="grid grid-rows-[auto_1fr] min-h-screen pb-[60px]">
+      <section className="flex flex-col h-[calc(100vh-60px)]">
         <Header onOpen={() => setIsBurgerOpen(true)} />
-        <section className={`${bgColor}`}>
+        <section className={`${bgColor} h-full`}>
           <Outlet />
         </section>
         <Footer />
