@@ -22,7 +22,7 @@ h2 {
 }
 
 .footer-button {
-  @apply flex-1 h-full flex justify-center items-center active:scale-95 rounded-2xl transition-all;
+  @apply flex-1 h-10 flex justify-center items-center active:scale-95 rounded-2xl transition-all;
 }
 
 .burger-button {
