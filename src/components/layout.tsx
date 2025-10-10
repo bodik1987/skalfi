@@ -26,7 +26,7 @@ export default function Layout() {
   return (
     <>
       <Burger open={isBurgerOpen} onClose={() => setIsBurgerOpen(false)} />
-      <section className="grid grid-rows-[auto_1fr] min-h-dvh">
+      <section className="grid grid-rows-[auto_1fr] min-h-screen">
         <Header onOpen={() => setIsBurgerOpen(true)} />
         <section className={`${bgColor} min-h-[calc(100vh-64px)]`}>
           <Outlet />
