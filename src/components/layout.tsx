@@ -28,7 +28,7 @@ export default function Layout() {
       <Burger open={isBurgerOpen} onClose={() => setIsBurgerOpen(false)} />
       <section className="grid grid-rows-[auto_1fr] min-h-screen">
         <Header onOpen={() => setIsBurgerOpen(true)} />
-        <section className={`${bgColor} min-h-[calc(100vh-64px)]`}>
+        <section className={`${bgColor} h-full`}>
           <Outlet />
         </section>
         <Footer />
