@@ -30,6 +30,8 @@ export default function UserInfo() {
             </div>
             <p>{user?.id}</p>
           </div>
+
+          <p>bsshul@gmail.com Telefon: +48509370648</p>
         </div>
       </div>
     </section>
