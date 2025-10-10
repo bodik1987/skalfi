@@ -7,33 +7,22 @@ export default function Schedule() {
   const plannedHours = (totalDays - freeDaysCount) * 8;
 
   return (
-    <section>
-      {/* Верхняя панель */}
-      <div className="bg-app-green w-full py-4 shadow-md">
-        <h2 className="text-center text-white font-semibold text-lg">
-          Harmonogram
-        </h2>
-      </div>
+    <div className="wrapper flex flex-col pb-[60px] min-h-[calc(100vh-60px)]">
+      <Calendar userFreeDays={user?.freeDays || []} />
 
-      {/* Контент */}
-      <div className="flex flex-col pb-[60px] min-h-[calc(100vh-60px)]">
-        <Calendar userFreeDays={user?.freeDays || []} />
+      <div className="wrapper mt-auto px-4 py-4 bg-app-green text-white rounded-t-2xl w-full z-10">
+        <h2 className="text-lg font-semibold mb-2">Podsumowanie miesiąca</h2>
 
-        {/* Нижний блок с итогами */}
-        <div className="wrapper mt-auto px-4 py-4 bg-app-green text-white rounded-t-2xl w-full z-10">
-          <h2 className="text-lg font-semibold mb-2">Podsumowanie miesiąca</h2>
+        <div className="mt-4 flex justify-between">
+          <p>Zaplanowano godzin</p>
+          <p>{plannedHours}:00 h</p>
+        </div>
 
-          <div className="mt-4 flex justify-between">
-            <p>Zaplanowano godzin</p>
-            <p>{plannedHours}:00 h</p>
-          </div>
-
-          <div className="mt-4 flex justify-between">
-            <p>Dni wolnych</p>
-            <p>{freeDaysCount}</p>
-          </div>
+        <div className="mt-4 flex justify-between">
+          <p>Dni wolnych</p>
+          <p>{freeDaysCount}</p>
         </div>
       </div>
-    </section>
+    </div>
   );
 }

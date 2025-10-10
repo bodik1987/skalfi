@@ -18,11 +18,9 @@ export default function Docs() {
   }
 
   return (
-    <section>
-      <div className="bg-app-green w-full pt-4 shadow-md">
-        <h2 className="text-center text-white">Wnioski</h2>
-
-        <div className="mt-2 flex justify-around">
+    <>
+      <div className="bg-app-green w-full shadow-md">
+        <div className="wrapper flex justify-around">
           <button
             onClick={() => setActiveTab("0")}
             className={`${
@@ -44,7 +42,7 @@ export default function Docs() {
         </div>
       </div>
 
-      <div className="mt-3 px-3 flex flex-col gap-4">
+      <div className="wrapper mt-3 px-3 flex flex-col gap-4">
         {user?.docs
           ?.filter((doc) =>
             activeTab === "0" ? doc.type === "vacation" : doc.type === "time"
@@ -80,6 +78,6 @@ export default function Docs() {
             </div>
           ))}
       </div>
-    </section>
+    </>
   );
 }

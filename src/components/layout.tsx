@@ -6,44 +6,33 @@ import Header from "./header";
 import Footer from "./footer";
 
 export default function Layout() {
-  const location = useLocation();
-
+  const { pathname } = useLocation();
   const isOnline = useCheckConnection();
+  const [isBurgerOpen, setIsBurgerOpen] = useState(false);
 
-  const [isBurgerOpen, setBurgerOpen] = useState(false);
-  const handleOpen = () => {
-    setBurgerOpen(true);
-  };
+  if (!isOnline) {
+    return (
+      <section className="fixed inset-0 bg-app-gray text-white z-[999] flex items-center justify-center">
+        Błąd wczytywania. Połącz się z Internetem.
+      </section>
+    );
+  }
 
-  const handleClose = () => {
-    setBurgerOpen(false);
-  };
+  const bgColor =
+    pathname !== "/" && pathname !== "/schedule"
+      ? "bg-[#E0E0E0]"
+      : "bg-app-gray";
 
   return (
     <>
-      <Burger open={isBurgerOpen} onClose={handleClose} />
-
-      {isOnline ? (
-        <section className="grid grid-rows-[auto_1fr] min-h-dvh">
-          <Header onOpen={handleOpen} />
-          <section
-            className={`${
-              location.pathname !== "/" && location.pathname !== "/schedule"
-                ? "bg-[#E0E0E0]"
-                : "bg-app-gray"
-            }`}
-          >
-            <div className="wrapper">
-              <Outlet />
-            </div>
-          </section>
-          <Footer />
+      <Burger open={isBurgerOpen} onClose={() => setIsBurgerOpen(false)} />
+      <section className="grid grid-rows-[auto_1fr] min-h-dvh">
+        <Header onOpen={() => setIsBurgerOpen(true)} />
+        <section className={bgColor}>
+          <Outlet />
         </section>
-      ) : (
-        <section className="fixed inset-0 bg-app-gray text-white z-[999] flex items-center justify-center">
-          Błąd wczytywania. Połącz się z Internetem.
-        </section>
-      )}
+        <Footer />
+      </section>
     </>
   );
 }

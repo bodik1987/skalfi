@@ -68,7 +68,7 @@ export default function WeekCarousel() {
             const swipe = Math.abs(offset.x) > 80 || Math.abs(velocity.x) > 200;
             if (swipe) paginate(offset.x < 0 ? 1 : -1);
           }}
-          className="absolute flex w-full items-center justify-center"
+          className="absolute flex w-full items-center justify-center cursor-grab"
         >
           {/* Wczoraj */}
           <div className="w-[10%] text-center opacity-60 scale-90">
