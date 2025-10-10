@@ -7,7 +7,7 @@ export default function Schedule() {
   const plannedHours = (totalDays - freeDaysCount) * 8;
 
   return (
-    <div className="wrapper h-full flex flex-col pb-[60px]">
+    <div className="wrapper h-full flex flex-col">
       <Calendar userFreeDays={user?.freeDays || []} />
 
       <div className="mt-auto bottom-panel">

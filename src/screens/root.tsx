@@ -21,7 +21,7 @@ export default function Root() {
   const isFreeDay = user.freeDays?.includes(formattedDate);
 
   return (
-    <div className="wrapper h-full flex flex-col pb-[60px]">
+    <div className="wrapper h-full flex flex-col">
       <CircularTimer />
 
       <div className="mt-auto">
