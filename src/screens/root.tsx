@@ -21,14 +21,12 @@ export default function Root() {
   const isFreeDay = user.freeDays?.includes(formattedDate);
 
   return (
-    <div className="flex flex-col items-center">
-      <div className="wrapper">
-        <div className="mt-6 text-white">
-          <CircularTimer />
-          <WeekCarousel />
-        </div>
+    <div className="wrapper h-full flex flex-col pb-[60px]">
+      <CircularTimer />
 
-        <div className="wrapper fixed bottom-[60px] inset-x-0 px-4 py-4 bg-app-green text-white rounded-t-2xl w-full z-10">
+      <div className="mt-auto">
+        <WeekCarousel />
+        <div className="bottom-panel">
           <div className="flex gap-4 pb-4 justify-between items-start">
             {expanded ? (
               <h2>Wymiar urlopu 2025</h2>
@@ -51,7 +49,7 @@ export default function Root() {
 
           {expanded ? (
             <div className="flex flex-col gap-4">
-              <div className="flex bg-white text-black p-2 rounded-md">
+              <div className="flex justify-between bg-white text-black p-2 rounded-md">
                 <p className="font-semibold">Urlop wypoczynkowy</p>
                 <div className="flex gap-2 ml-2">
                   <div>
@@ -73,7 +71,7 @@ export default function Root() {
                 </div>
               </div>
 
-              <div className="flex bg-white text-black p-2 rounded-md">
+              <div className="flex justify-between bg-white text-black p-2 rounded-md">
                 <p className="font-semibold">Urlop opieka nad dziec.</p>
                 <div className="flex gap-2 ml-2">
                   <div>

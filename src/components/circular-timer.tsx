@@ -38,7 +38,7 @@ export default function CircularTimer() {
   const isFreeDay = user.freeDays?.includes(formatted);
 
   return (
-    <div className="flex items-center justify-center">
+    <div className="mt-10 flex items-center justify-center">
       <svg height={radius * 2} width={radius * 2} className="-rotate-90">
         <circle
           stroke="#111"

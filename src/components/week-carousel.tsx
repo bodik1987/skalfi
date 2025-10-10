@@ -52,7 +52,7 @@ export default function WeekCarousel() {
   };
 
   return (
-    <div className="relative flex items-center justify-center w-full h-48 overflow-hidden text-white">
+    <div className="mt-4 relative flex items-center justify-center w-full h-24 overflow-hidden text-white">
       <AnimatePresence custom={direction}>
         <motion.div
           key={selectedDate.toDateString()}

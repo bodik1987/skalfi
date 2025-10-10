@@ -28,3 +28,7 @@ h2 {
 .burger-button {
   @apply text-app-gray flex items-center gap-4 px-4 py-2.5 active:scale-95 rounded-md transition-all;
 }
+
+.bottom-panel {
+  @apply p-4 bg-app-green text-white rounded-t-2xl;
+}
