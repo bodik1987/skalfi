@@ -12,7 +12,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="fixed bottom-0 inset-x-0 h-[60px] bg-white border-t z-10">
+    <footer className="h-16 bg-white border-t">
       <div className="wrapper h-full flex justify-around items-center p-2">
         {links.map(({ to, icon }) => (
           <NavLink key={to} to={to} className={getLinkClass}>
